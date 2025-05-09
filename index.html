@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실버세대 퀴즈 이벤트</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <h1>실버세대를 위한 건강 퀴즈</h1>
+
+    <form id="quiz-form">
+      <!-- 1번 문제 -->
+  <div class="quiz-item">
+    <p>1. 하루에 물은 몇 잔 이상 마시는 것이 좋을까요?</p>
+    <label><input type="radio" name="q1" value="a"> 2잔</label>
+    <label><input type="radio" name="q1" value="b"> 5잔</label>
+    <label><input type="radio" name="q1" value="c"> 8잔</label> <!-- ✅ 정답 -->
+  </div>
+
+  <!-- 2번 문제 -->
+  <div class="quiz-item">
+    <p>2. 규칙적인 운동이 건강에 주는 이점으로 옳은 것은?</p>
+    <label><input type="radio" name="q2" value="a"> 면역력 저하</label>
+    <label><input type="radio" name="q2" value="b"> 관절 기능 약화</label>
+    <label><input type="radio" name="q2" value="c"> 심장 기능 강화</label> <!-- ✅ 정답 -->
+  </div>
+
+  <!-- 3번 문제 -->
+  <div class="quiz-item">
+    <p>3. 노년기 기억력 유지를 돕는 식품은?</p>
+    <label><input type="radio" name="q3" value="a"> 튀김류</label>
+    <label><input type="radio" name="q3" value="b"> 견과류</label> <!-- ✅ 정답 -->
+    <label><input type="radio" name="q3" value="c"> 탄산음료</label>
+  </div>
+
+  <!-- 4번 문제 -->
+  <div class="quiz-item">
+    <p>4. 65세 이상이 대상인 무료 예방접종은?</p>
+    <label><input type="radio" name="q4" value="a"> 독감 백신</label> <!-- ✅ 정답 -->
+    <label><input type="radio" name="q4" value="b"> 풍진 백신</label>
+    <label><input type="radio" name="q4" value="c"> 수두 백신</label>
+  </div>
+
+  <!-- 5번 문제 -->
+  <div class="quiz-item">
+    <p>5. 고혈압 예방을 위한 식이 요법으로 적절한 것은?</p>
+    <label><input type="radio" name="q5" value="a"> 짠 음식 위주로 섭취</label>
+    <label><input type="radio" name="q5" value="b"> 싱겁게 먹고 채소 섭취</label> <!-- ✅ 정답 -->
+    <label><input type="radio" name="q5" value="c"> 단백질을 제한적으로 섭취</label>
+  </div>
+
+      <button type="button" id="submit-btn">결과 보기</button>
+    </form>
+  </main>
+
+  <!-- 모달창 -->
+  <div class="modal hidden" id="result-modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <div id="score-display">
+        <p>당신의 점수는...</p>
+        <h2 id="score-number">0점</h2>
+      </div>
+      <div id="form-section" class="hidden">
+        <h3>경품 응모하기</h3>
+        <form id="entry-form">
+          <input type="text" id="name" placeholder="이름">
+          <input type="email" id="email" placeholder="이메일">
+          <input type="tel" id="phone" placeholder="전화번호">
+          <button type="submit">응모하기</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

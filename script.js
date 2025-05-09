@@ -1,0 +1,86 @@
+// 정답 정의
+const correctAnswers = {
+    q1: "c",
+    q2: "c",
+    q3: "b",
+    q4: "a",
+    q5: "b"
+  };
+  
+  // 요소 불러오기
+  const submitBtn = document.getElementById("submit-btn");
+  const modal = document.getElementById("result-modal");
+  const scoreDisplay = document.getElementById("score-number");
+  const formSection = document.getElementById("form-section");
+  const closeModalBtn = document.getElementById("close-modal");
+  const entryForm = document.getElementById("entry-form");
+  
+  // 점수 계산 함수
+  function calculateScore() {
+    let score = 0;
+    for (let key in correctAnswers) {
+      const selected = document.querySelector(`input[name="${key}"]:checked`);
+      if (selected && selected.value === correctAnswers[key]) {
+        score += 1;
+      }
+    }
+    return score;
+  }
+  
+  // 숫자 애니메이션 효과
+  function animateScore(finalScore) {
+    let current = 0;
+    const interval = setInterval(() => {
+      scoreDisplay.textContent = `${current}점`;
+      if (current >= finalScore) {
+        clearInterval(interval);
+      }
+      current++;
+    }, 150);
+  }
+  
+  // 퀴즈 제출 버튼 클릭 시
+  submitBtn.addEventListener("click", () => {
+    const score = calculateScore();
+    modal.classList.remove("hidden");
+    scoreDisplay.textContent = "0점"; // 초기화
+    animateScore(score);
+  
+    // 일정 시간 뒤 경품 폼 표시
+    setTimeout(() => {
+      formSection.classList.remove("hidden");
+    }, 3000); // 3초 후 표시
+  });
+  
+  // 모달 닫기 버튼 (선택사항)
+  closeModalBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    formSection.classList.add("hidden");
+  });
+  
+  // 유효성 검사 함수
+  function validateForm(name, email, phone) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!name || !email || !phone) {
+      alert("모든 항목을 입력해주세요.");
+      return false;
+    }
+    if (!emailRegex.test(email)) {
+      alert("올바른 이메일 형식을 입력해주세요.");
+      return false;
+    }
+    return true;
+  }
+  
+  // 응모하기 버튼 제출 시
+  entryForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+  
+    if (validateForm(name, email, phone)) {
+      alert("응모가 완료되었습니다! 감사합니다.");
+      entryForm.reset();
+    }
+  });

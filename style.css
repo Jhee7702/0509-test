@@ -1,0 +1,116 @@
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    background-color: #ffffff;
+    color: #222;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  h1 {
+    font-size: 28px;
+    text-align: center;
+    color: #1a73e8;
+  }
+  
+  .quiz-item {
+    margin-bottom: 2rem;
+  }
+  
+  .quiz-item p {
+    font-weight: bold;
+  }
+  
+  label {
+    display: block;
+    margin: 0.5rem 0;
+    cursor: pointer;
+  }
+  
+  button {
+    font-size: 20px;
+    padding: 0.75rem 1.5rem;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #125ab3;
+  }
+  
+  /* 모달 스타일 */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  #score-number {
+    font-size: 40px;
+    color: #ff5722;
+  }
+  
+  /* 응모 폼 */
+  #entry-form input {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    padding: 0.5rem;
+    margin: 0.75rem 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  /* 숨김 클래스 */
+  .hidden {
+    display: none;
+  }
+  
+  /* 반응형 */
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    button {
+      font-size: 18px;
+    }
+  }
