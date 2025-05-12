@@ -20,8 +20,8 @@ const correctAnswers = {
     let score = 0;
     for (let key in correctAnswers) {
       const selected = document.querySelector(`input[name="${key}"]:checked`);
-      if (selected && selected.value === correctAnswers[key]) {
-        score += 1;
+      if (selected && selected.value === correctAnswers[key]) { //selected && : selected가 null일 수도 있으니 안전하게 다음 코드를 실행하기 위한 조건문
+        score += 20;
       }
     }
     return score;
@@ -35,7 +35,7 @@ const correctAnswers = {
       if (current >= finalScore) {
         clearInterval(interval);
       }
-      current++;
+      current += 20;
     }, 150);
   }
   
@@ -43,7 +43,7 @@ const correctAnswers = {
   submitBtn.addEventListener("click", () => {
     const score = calculateScore();
     modal.classList.remove("hidden");
-    scoreDisplay.textContent = "0점"; // 초기화
+    scoreDisplay.textContent = "0점"; // 초기화. 사용자가 한 번 이상 퀴즈를 푼 경우, 점수가 계속 더해짐
     animateScore(score);
   
     // 일정 시간 뒤 경품 폼 표시
@@ -58,14 +58,14 @@ const correctAnswers = {
     formSection.classList.add("hidden");
   });
   
-  // 유효성 검사 함수
+  // 유효성 검사 함수 
   function validateForm(name, email, phone) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //정규표현식 객체 .test() 라는 기능을 갖고 있음
     if (!name || !email || !phone) {
       alert("모든 항목을 입력해주세요.");
       return false;
     }
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(email)) { //.test() 문자열이 정규표현식 형식에 맞는지 검사
       alert("올바른 이메일 형식을 입력해주세요.");
       return false;
     }
@@ -74,8 +74,8 @@ const correctAnswers = {
   
   // 응모하기 버튼 제출 시
   entryForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const name = document.getElementById("name").value.trim();
+    e.preventDefault(); //폼 제출 후 새로고침 안 하도록 막아주는 코드
+    const name = document.getElementById("name").value.trim(); //.trim() :실수로 입력한 앞뒤 공백 제거
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
   
