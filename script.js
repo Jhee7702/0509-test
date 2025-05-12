@@ -36,7 +36,7 @@ const correctAnswers = {
         clearInterval(interval);
       }
       current += 20;
-    }, 150);
+    }, 300);
   }
   
   // 퀴즈 제출 버튼 클릭 시
@@ -49,7 +49,7 @@ const correctAnswers = {
     // 일정 시간 뒤 경품 폼 표시
     setTimeout(() => {
       formSection.classList.remove("hidden");
-    }, 3000); // 3초 후 표시
+    }, 4000); // 4초 후 표시
   });
   
   // 모달 닫기 버튼 (선택사항)
